@@ -1,0 +1,7 @@
+.myLoader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;   /* full viewport height */
+  width: 100%;
+}

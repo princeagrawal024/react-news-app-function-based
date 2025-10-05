@@ -1,0 +1,119 @@
+/* ================================
+   NewsItem.css → 3D Neon CRED Style
+   ================================ */
+
+/* Card wrapper */
+
+.card {
+  background: linear-gradient(145deg, #121212, #1a1a1a);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  position: relative;   /* needed for absolute badge */
+  overflow: visible;    /* ✅ let badge float outside */
+  box-shadow: 
+    8px 8px 20px rgba(0,0,0,0.8),
+    -8px -8px 20px rgba(50,50,50,0.2);
+}
+
+
+
+/* Hover → card pops out */
+.card:hover {
+  transform: perspective(1000px) translateY(-8px) translateZ(12px) scale(1.02);
+  box-shadow: 
+    12px 12px 30px rgba(0,0,0,0.9), 
+    -12px -12px 30px rgba(0,255,200,0.2);
+  border: 1px solid rgba(0,255,200,0.2);
+}
+
+/* Image styling */
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Card body */
+.card-body {
+  padding: 18px;
+  color: #e0e0e0;
+}
+
+/* Title */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fafafa;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Title hover glow */
+.card-title:hover {
+  color: #00ffcc;
+  text-shadow: 0 0 10px rgba(0,255,200,0.6);
+}
+
+/* Date text */
+.card-body p i {
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+/* Description */
+.card-text {
+  font-size: 0.95rem;
+  color: #c7c7c7;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* Read more button */
+.card .btn-primary {
+  background: linear-gradient(145deg, #00ffcc, #0077ff);
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  box-shadow: 
+    4px 4px 12px rgba(0,0,0,0.7),
+    -2px -2px 8px rgba(255,255,255,0.05),
+    inset 2px 2px 6px rgba(0,255,200,0.2),
+    inset -2px -2px 6px rgba(0,0,0,0.4);
+}
+
+/* Button hover → deeper 3D neon glow */
+.card .btn-primary:hover {
+  background: linear-gradient(145deg, #0077ff, #00ffcc);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    6px 6px 16px rgba(0,0,0,0.8),
+    -3px -3px 12px rgba(0,255,200,0.3),
+    inset 3px 3px 8px rgba(0,255,200,0.3),
+    inset -3px -3px 8px rgba(0,0,0,0.6);
+}
+
+.card .badge {
+  z-index: 5;              /* ✅ make sure it floats on top */
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ff4d6d, #d40032); /* neon red style */
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0px 3px 8px rgba(255,0,50,0.4);
+  max-width: 110px;             /* limit badge width */
+  white-space: nowrap;          /* keep text on one line */
+  overflow: hidden;             /* hide extra text */
+  text-overflow: ellipsis;      /* show "..." when cut */
+  display: inline-block;        /* needed for ellipsis */
+}
+
+

@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import News from "./components/News";
+import LoadingBar from "react-top-loading-bar";
 
-function App() {
+const App = () => {
+  let apiKey = process.env.REACT_APP_API_KEY;
+  
+  const [currentProgress, setProgress] = useState(0);
+  let categoriesList = ["business", "health", "science", "sports", "technology", "entertainment"];
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+      <div>
+        <Router>
+          <NavBar />
+          <LoadingBar
+            color="cyan"
+            height={3}
+            progress={currentProgress}
+          />
+          <Routes>
+            <Route path="/home" element={<News category="general" setProgress={setProgress} apiKey={apiKey}/>} />
+            <Route path="/" element={<News category="general" setProgress={setProgress} apiKey={apiKey}/>} />
+            {categoriesList.map((cat) => (<Route path={`/${cat}`} element={<News category={cat} setProgress={setProgress} apiKey={apiKey}/>} />))}
+          </Routes>
+        </Router>
+      </div>
+    );
+};
 
 export default App;
