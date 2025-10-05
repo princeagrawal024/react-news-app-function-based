@@ -11,10 +11,11 @@ const NewsItem= (props)=>{
           <img src={imageUrl} className="card-img-top" alt="img failed to load" />
           
           <div className="card-body">
-            <h5 className="card-title">{title} 
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            <h5 className="card-title">
+              {title} 
+              <span className="badge source-badge">
                 {sourceName}
-              <span className="visually-hidden">unread messages</span></span>
+              </span>
             </h5>
             <p ><i>By <strong>{author}</strong> on <strong>{DateUtils.formatDate(dateTime)}</strong></i></p> 
             <p className="card-text">{description}</p>
